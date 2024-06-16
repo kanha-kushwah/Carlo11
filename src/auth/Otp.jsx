@@ -34,7 +34,10 @@ const Otp = () => {
             </div>
           </div>
           <div className="col-md-6 col-12 align-self-start mt-5">
-            <h1 className="main-heading text-white d-flex"><img className="me-md-3 " src="/img/arrow-right.svg" alt="" /> Verification Email</h1>
+          <Link className="hover-none" to={"/"}>   <h1 className="main-heading text-white d-flex">
+              <img className="me-md-3 " src="/img/arrow-right.svg" alt="" />{" "}
+              Verification Email
+            </h1></Link>
 
             <h4 className="text-white mt-md-5 mt-4 opt-heading">
               Please Enter 6 Digital <span className="font-yellow">OTP</span>
@@ -53,20 +56,20 @@ const Otp = () => {
               </p>
             </div>
 
-<div className="last">
-            <Link to={"/otp"}>
-              {" "}
-              <Button className="btn-style mt-5" type="submit">
-                Submit
-              </Button>{" "}
-            </Link>
+            <div className="last">
+              <Link  to={"/profile"}>
+                {" "}
+                <Button className="btn-style mt-5" type="submit">
+                  Submit
+                </Button>{" "}
+              </Link>
 
-            <div className="text-white text-center box-w">
-              <p className="mt-md-4 mt-4">
-                By Registering, I Agree to{" "}
-                <span className="font-yellow">Caro11’s </span>T&Cs
-              </p>
-            </div>
+              <div className="text-white text-center box-w">
+                <p className="mt-md-4 mt-4">
+                  By Registering, I Agree to{" "}
+                  <span className="font-yellow">Caro11’s </span>T&Cs
+                </p>
+              </div>
             </div>
           </div>
         </div>

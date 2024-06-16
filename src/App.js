@@ -13,7 +13,7 @@ function App() {
    <Routes>
         <Route path="/" element={<Register />} /> 
         <Route path="/otp" element={<Otp />} /> 
-        <Route path="/register" element={<Profile />} /> 
+        <Route path="/profile" element={<Profile />} /> 
 
       </Routes>
    </BrowserRouter>
