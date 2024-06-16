@@ -1,38 +1,66 @@
-.App {
+@import url("https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&display=swap");
+* {
+  font-family: "Nunito Sans", sans-serif;
+}
+
+:root {
+  --yellow: #fee101;
+  --white: #ffffff;
+}
+
+.banner {
+  min-height: calc(100vh);
+}
+#banner {
+  background-color: #000;
+  background-image: url(/public/img/bg-banner.svg);
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+}
+
+.main-heading {
+  font-size: 40px;
+  font-weight: 700;
+  line-height: 54.56px;
+  text-align: left;
+}
+.sub-heading-bold {
+  font-size: 38.58px;
+  font-weight: 800;
+  line-height: 42.19px;
   text-align: center;
 }
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.sub-heading {
+  font-size: 35px;
+  font-weight: 700;
+  line-height: 35px;
+  text-align: left;
 }
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.sub-heading-small {
+  font-size: 28.93px;
+  font-weight: 600;
+  line-height: 42.19px;
+  text-align: center;
 }
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.form-heading {
+  font-size: 20.9px;
+  font-weight: 700;
+  line-height: 18.58px;
+  text-align: left;
 }
-
-.App-link {
-  color: #61dafb;
+.form-heading-light {
+  font-size: 20.9px;
+  font-weight: 700;
+  line-height: 18.58px;
+  text-align: left;
 }
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.font-yellow{
+  color: var(--yellow);
+}
+.container {
+  max-width: 1064px !important;
+}
+span.input-group-text {
+  background: transparent;
 }
