@@ -1,7 +1,13 @@
-import React from "react";
+import React, { useState } from "react";
 import { Form, Button, InputGroup } from "react-bootstrap";
 
 const Register = () => {
+  const [passwordVisible, setPasswordVisible] = useState(false);
+
+  const togglePasswordVisibility = () => {
+    setPasswordVisible(!passwordVisible);
+  };
+
   return (
     <>
       <section id="banner">
@@ -14,7 +20,7 @@ const Register = () => {
               </div>
 
               <div className="mt-md-4 w-75">
-                <img
+                <img className="bonus-img"
                   src="/img/Bonus-img.png"
                   alt="bonus"
                   height={"294px"}
@@ -29,13 +35,13 @@ const Register = () => {
                 </h6>
               </div>
             </div>
-            <div className="col-md-6 col-12">
+            <div className="col-md-6 col-12 align-self-start mt-5">
               <h1 className="main-heading text-white">Register & Play</h1>
 
-              <Form>
+              <Form className="mt-5">
                 <fieldset>
                   <Form.Group className="mb-3">
-                    <Form.Label className="text-white">
+                    <Form.Label className="text-white form-heading">
                       Enter Invite Code
                     </Form.Label>
                     <InputGroup>
@@ -50,16 +56,16 @@ const Register = () => {
                   </Form.Group>
 
                   <Form.Group className="mb-3">
-                    <Form.Label className="text-white">
+                    <Form.Label className="text-white form-heading">
                       Enter Mobile Number
                     </Form.Label>
                     <InputGroup>
                       <Form.Control
-                        type="number"
+                        type="tel"
                         placeholder="Enter Mobile Number"
                       />
                       <InputGroup.Text>
-                        <img src="/img/file-icon.svg" alt="Logo" />
+                        <img src="/img/phone.svg" alt="Logo" />
                       </InputGroup.Text>
                     </InputGroup>
                     <Form.Text className="text-white">
@@ -68,7 +74,7 @@ const Register = () => {
                   </Form.Group>
 
                   <Form.Group className="mb-3">
-                    <Form.Label className="text-white">
+                    <Form.Label className="text-white form-heading">
                       Email Address
                     </Form.Label>
                     <InputGroup>
@@ -77,20 +83,35 @@ const Register = () => {
                         placeholder="Enter Email Address"
                       />
                       <InputGroup.Text>
-                        <img src="/img/file-icon.svg" alt="Logo" />
+                        <img src="/img/email.svg" alt="Logo" />
                       </InputGroup.Text>
                     </InputGroup>
                   </Form.Group>
 
                   <Form.Group className="mb-3">
-                    <Form.Label className="text-white">Password</Form.Label>
+                    <Form.Label className="text-white form-heading">
+                      Password
+                    </Form.Label>
+
                     <InputGroup>
                       <Form.Control
-                        type="password"
+                        type={passwordVisible ? "text" : "password"}
                         placeholder="Enter Password"
                       />
-                      <InputGroup.Text>
-                        <img src="/img/file-icon.svg" alt="Logo" />
+                      <InputGroup.Text
+                        onClick={togglePasswordVisibility}
+                        style={{ cursor: "pointer" }}
+                      >
+                        <img
+                          src={
+                            passwordVisible
+                              ? "/img/hide-pass.svg"
+                              : "/img/show-pass.svg"
+                          }
+                          alt={
+                            passwordVisible ? "Hide password" : "Show password"
+                          }
+                        />
                       </InputGroup.Text>
                     </InputGroup>
 
@@ -109,9 +130,29 @@ const Register = () => {
                     />
                   </Form.Group>
 
-                  <Button type="submit">Submit</Button>
+                  <Button className="btn-style" type="submit">
+                    Register
+                  </Button>
                 </fieldset>
               </Form>
+
+              <div className="text-white text-center box-w">
+                <h6 className="my-4">OR</h6>
+                <div className="d-flex g-20">
+                  <Button className="btn-style-two" type="submit">
+                    {" "}
+                    <img src="/img/goole.svg" alt="google" /> Google Login
+                  </Button>
+                  <Button className="btn-style-two" type="submit">
+                    {" "}
+                    <img src="/img/facebook.svg" alt="" /> Facebook Login
+                  </Button>
+                </div>
+                <p className="mt-md-4 mt-4">
+                  By Registering, I Agree to{" "}
+                  <span className="font-yellow">Caro11’s </span>T&Cs
+                </p>
+              </div>
             </div>
           </div>
         </div>
