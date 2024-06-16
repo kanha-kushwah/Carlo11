@@ -100,7 +100,7 @@ const Profile = () => {
 
          
 
-            <Button className="btn-style mt-md-5 mt-4" type="submit">
+            <Button className="btn-style mt-md-5 mt-4 mb-4" type="submit">
             Create Profile
               </Button> 
             </fieldset>
