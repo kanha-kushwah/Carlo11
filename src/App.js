@@ -5,7 +5,7 @@ function App() {
    <>
    <div
     className="container">
-    bs5-grid-row
+    bs5-grid-row hello kanha
    </div>
    
    </>
