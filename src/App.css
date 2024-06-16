@@ -55,6 +55,13 @@
   line-height: 18.58px;
   text-align: left;
 }
+.opt-heading{
+font-size: 24px;
+font-weight: 700;
+line-height: 18.58px;
+text-align: left;
+
+}
 .font-yellow{
   color: var(--yellow);
 }
@@ -121,15 +128,77 @@ button.btn-style-two.btn {
 .g-20{
   gap: 20px;
 }
+.g-10{
+  gap: 10px;
+}
+.otp-send input {
+  width: 70px !important;
+  height: 70px !important;
+  background: #2D2D45;
+  border-radius: 12px;
+  box-shadow: none !important;
+  color: #fff;
+  font-size: 30px;
+} 
+.otp-send div {
+  gap: 12px;
+}
+.exp {
+  margin-right: -66px;
+}
 @media(min-width:767px){
   .d-flex.align-items-center {
     position: absolute;
     top: 40px;
 }
+.last {
+  position: absolute;
+  bottom: 100px;
 }
+}
+
+@media(max-width:1220px){
+  .exp {
+    margin-right: 0px;
+}
+.otp-send input {
+  width: 60px !important;
+  height: 60px !important;
+  background: #2D2D45;
+  border-radius: 12px;
+  box-shadow: none !important;
+  color: #fff;
+  font-size: 30px;
+}
+
+
+}
+
 @media(max-width:500px){
   .bonus-img{
+    margin: auto;
     width: 100% !important;
     height: auto !important;
   }
+  .full-w{
+    width: 100% !important;
+    margin: auto;
+  }
+  img.logo {
+    width: 50px;
+}
+.otp-send span {
+  display: none;
+}
+.otp-send div {
+  gap: 10px;
+  justify-content: space-between;
+}
+}
+@media(max-width:420px){
+  .otp-send input {
+    width: 45px !important;
+    height: 45px !important;
+  
+}
 }
