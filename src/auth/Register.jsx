@@ -1,9 +1,53 @@
 import React, { useState } from "react";
 import { Form, Button, InputGroup } from "react-bootstrap";
 import { Link } from "react-router-dom";
+import axios from "axios";
+
 
 const Register = () => {
+  
+  const [formData, setFormData] = useState({
+    inviteCode: '',
+    mobileNumber: '',
+    email: '',
+    password: '',
+    isAbove18: false,
+  });
+
+
+
+  const handleChange = (e) => {
+    const { name, value, type, checked } = e.target;
+    setFormData((prevData) => ({
+      ...prevData,
+      [name]: type === 'checkbox' ? checked : value,
+    }));
+  };
+
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    const apiData = {
+      email: formData.email,
+      password: formData.password,
+      mobile: formData.mobileNumber,
+      country: '91', 
+      refercode: formData.inviteCode || '',
+    };
+
+    try {
+      const response = await axios.post('https://caro11.com/caro11_admin/api/tempregisteruser', apiData);
+      console.log('API Response:', response.data)
+    } catch (error) {
+      console.error('Error submitting form:', error);
+    }
+  };
+  
+  
   const [passwordVisible, setPasswordVisible] = useState(false);
+
+
 
   const togglePasswordVisibility = () => {
     setPasswordVisible(!passwordVisible);
@@ -39,103 +83,116 @@ const Register = () => {
             <div className="col-md-6 col-12 align-self-start mt-5">
               <h1 className="main-heading text-white">Register & Play</h1>
 
-              <Form className="mt-sm-5 mt-4">
-                <fieldset>
-                  <Form.Group className="mb-3">
-                    <Form.Label className="text-white form-heading">
-                      Enter Invite Code
-                    </Form.Label>
-                    <InputGroup>
-                      <Form.Control
-                        type="text"
-                        placeholder="Enter Invite Code"
-                      />
-                      <InputGroup.Text>
-                        <img src="/img/file-icon.svg" alt="Logo" />
-                      </InputGroup.Text>
-                    </InputGroup>
-                  </Form.Group>
+              <Form className="mt-sm-5 mt-4" onSubmit={handleSubmit}>
+      <fieldset>
+        <Form.Group className="mb-3">
+          <Form.Label className="text-white form-heading">
+            Enter Invite Code
+          </Form.Label>
+          <InputGroup>
+            <Form.Control
+              type="text"
+              name="inviteCode"
+              placeholder="Enter Invite Code"
+              value={formData.inviteCode}
+              onChange={handleChange}
+            />
+            <InputGroup.Text>
+              <img src="/img/file-icon.svg" alt="Logo" />
+            </InputGroup.Text>
+          </InputGroup>
+        </Form.Group>
 
-                  <Form.Group className="mb-3">
-                    <Form.Label className="text-white form-heading">
-                      Enter Mobile Number
-                    </Form.Label>
-                    <InputGroup>
-                      <Form.Control
-                        type="tel"
-                        placeholder="Enter Mobile Number"
-                      />
-                      <InputGroup.Text>
-                        <img src="/img/phone.svg" alt="Logo" />
-                      </InputGroup.Text>
-                    </InputGroup>
-                    <Form.Text className="text-white">
-                      You Will Receive an OTP for Verification
-                    </Form.Text>
-                  </Form.Group>
+        <Form.Group className="mb-3">
+          <Form.Label className="text-white form-heading">
+            Enter Mobile Number
+          </Form.Label>
+          <InputGroup>
+            <Form.Control
+              type="tel"
+              name="mobileNumber"
+              placeholder="Enter Mobile Number"
+              value={formData.mobileNumber}
+              onChange={handleChange}
+            />
+            <InputGroup.Text>
+              <img src="/img/phone.svg" alt="Logo" />
+            </InputGroup.Text>
+          </InputGroup>
+          <Form.Text className="text-white">
+            You Will Receive an OTP for Verification
+          </Form.Text>
+        </Form.Group>
 
-                  <Form.Group className="mb-3">
-                    <Form.Label className="text-white form-heading">
-                      Email Address
-                    </Form.Label>
-                    <InputGroup>
-                      <Form.Control
-                        type="email"
-                        placeholder="Enter Email Address"
-                      />
-                      <InputGroup.Text>
-                        <img src="/img/email.svg" alt="Logo" />
-                      </InputGroup.Text>
-                    </InputGroup>
-                  </Form.Group>
+        <Form.Group className="mb-3">
+          <Form.Label className="text-white form-heading">
+            Email Address
+          </Form.Label>
+          <InputGroup>
+            <Form.Control
+              type="email"
+              name="email"
+              placeholder="Enter Email Address"
+              value={formData.email}
+              onChange={handleChange}
+            />
+            <InputGroup.Text>
+              <img src="/img/email.svg" alt="Logo" />
+            </InputGroup.Text>
+          </InputGroup>
+        </Form.Group>
 
-                  <Form.Group className="mb-3">
-                    <Form.Label className="text-white form-heading">
-                      Password
-                    </Form.Label>
+        <Form.Group className="mb-3">
+          <Form.Label className="text-white form-heading">
+            Password
+          </Form.Label>
 
-                    <InputGroup>
-                      <Form.Control
-                        type={passwordVisible ? "text" : "password"}
-                        placeholder="Enter Password"
-                      />
-                      <InputGroup.Text
-                        onClick={togglePasswordVisibility}
-                        style={{ cursor: "pointer" }}
-                      >
-                        <img
-                          src={
-                            passwordVisible
-                              ? "/img/hide-pass.svg"
-                              : "/img/show-pass.svg"
-                          }
-                          alt={
-                            passwordVisible ? "Hide password" : "Show password"
-                          }
-                        />
-                      </InputGroup.Text>
-                    </InputGroup>
+          <InputGroup>
+            <Form.Control
+              type={passwordVisible ? "text" : "password"}
+              name="password"
+              placeholder="Enter Password"
+              value={formData.password}
+              onChange={handleChange}
+            />
+            <InputGroup.Text
+              onClick={togglePasswordVisibility}
+              style={{ cursor: "pointer" }}
+            >
+              <img
+                src={
+                  passwordVisible
+                    ? "/img/hide-pass.svg"
+                    : "/img/show-pass.svg"
+                }
+                alt={
+                  passwordVisible ? "Hide password" : "Show password"
+                }
+              />
+            </InputGroup.Text>
+          </InputGroup>
 
-                    <Form.Text className="text-white">
-                      Must be 8 to 16 Characters with 1 Number, 1 Alphabet & 1
-                      Symbol
-                    </Form.Text>
-                  </Form.Group>
+          <Form.Text className="text-white">
+            Must be 8 to 16 Characters with 1 Number, 1 Alphabet & 1
+            Symbol
+          </Form.Text>
+        </Form.Group>
 
-                  <Form.Group className="mb-3">
-                    <Form.Check
-                      className="text-white"
-                      type="checkbox"
-                      id="disabledFieldsetCheck"
-                      label="I Certify That I am Above 18 Years."
-                    />
-                  </Form.Group>
+        <Form.Group className="mb-3">
+          <Form.Check
+            className="text-white"
+            type="checkbox"
+            id="disabledFieldsetCheck"
+            name="isAbove18"
+            label="I Certify That I am Above 18 Years."
+            checked={formData.isAbove18}
+            onChange={handleChange}
+          />
+        </Form.Group>
 
-                <Link to={"/otp"} > <Button className="btn-style" type="submit">
-                    Register
-                  </Button> </Link>
-                </fieldset>
-              </Form>
+        <button  className="btn-style btn btn-primary" type="submit">Register</button>
+      </fieldset>
+    </Form>
 
               <div className="text-white text-center box-w">
                 <h6 className="my-4">OR</h6>
