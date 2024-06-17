@@ -1,6 +1,6 @@
-import React, { useState } from "react";
+import React from "react";
 import { Form, Button, InputGroup } from "react-bootstrap";
-import { Link } from "react-router-dom";
+
 
 
 const Profile = () => {
@@ -31,7 +31,10 @@ const Profile = () => {
           </div>
         </div>
         <div className="col-md-6 col-12 align-self-start mt-5">
-          <h1 className="main-heading text-white">Register & Play</h1>
+        <h1 className="main-heading text-white d-flex">
+              <img className="me-md-3 " src="/img/arrow-right.svg" alt="" />{" "}
+              Create Profile
+            </h1>
 
           <Form className="mt-sm-5 mt-4">
             <fieldset>
