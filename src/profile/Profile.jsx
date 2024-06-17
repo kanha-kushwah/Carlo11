@@ -1,6 +1,6 @@
 import React from "react";
 import { Form, Button, InputGroup } from "react-bootstrap";
-
+import { Link } from "react-router-dom";
 
 
 const Profile = () => {
@@ -8,7 +8,7 @@ const Profile = () => {
     <section id="banner">
     <div className="container">
       <div className="row banner align-items-center">
-        <div className="col-md-6 col-12">
+        <div className="col-md-6 col-12 ali-self">
           <div className="d-flex align-items-center mt-sm-0 mt-4 g-10">
             <img className="logo" src="/img/carlo-logo.svg" alt="Logo" />
             <h2 className="sub-heading font-yellow">Caro11</h2>
@@ -31,11 +31,12 @@ const Profile = () => {
           </div>
         </div>
         <div className="col-md-6 col-12 align-self-start mt-5">
+        <Link to={"/"} className="hover-none">
         <h1 className="main-heading text-white d-flex">
               <img className="me-md-3 " src="/img/arrow-right.svg" alt="" />{" "}
               Create Profile
             </h1>
-
+            </Link>
           <Form className="mt-sm-5 mt-4">
             <fieldset>
               <Form.Group className="mb-3">
@@ -87,6 +88,7 @@ const Profile = () => {
               <Form.Group controlId="exampleForm.SelectCustom">
         <Form.Label className="text-white form-heading mb-3">Select Your State*</Form.Label>
         <Form.Select>
+        <option value="" disabled>Select Your State*</option>
           <option value="option1">Madhya Pardesh</option>
           <option value="option2">Delhi</option>
           <option value="option3">Gujarat</option>

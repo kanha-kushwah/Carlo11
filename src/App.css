@@ -107,7 +107,6 @@ button.btn-style {
   background: #fff;
   border: none;
   color: #000;
-  font-family: Nunito Sans;
   font-size: 20px;
   font-weight: 700;
   line-height: 27.28px;
@@ -155,6 +154,50 @@ button.btn-style-two.btn {
 a.hover-none {
   text-decoration: none;
 }
+input[type="date"]::-webkit-calendar-picker-indicator {
+  cursor: pointer;
+  filter: brightness(0) invert(0.8);
+  color: white;
+  width: 1.5em; /* Increase the size of the icon */
+  height: 1.5em; /* Increase the size of the icon */
+}
+
+input[type="date"]::-webkit-inner-spin-button,
+input[type="date"]::-webkit-clear-button {
+  display: none; /* Hide the inner buttons */
+}
+
+input[type="date"] {
+  color: white;
+  background-color: transparent; /* Example: dark background for the input */
+  border-bottom: 1px solid #ced4da;
+  border-radius: 0rem;
+  padding: 0.5rem;
+  font-size: 1rem;
+  padding-left: 0;
+}
+select#exampleForm\.SelectCustom option {
+  color: #000;
+}
+select#exampleForm\.SelectCustom {
+  filter: brightness(0) invert(0.8);
+  background-color: transparent;
+  color: #fff;
+  border: none;
+  border-bottom: solid 1px;
+  border-radius: 0;
+  padding-left: 0;
+  box-shadow: none;
+  background-size: 20px;
+}
+
+small{
+  font-size: 12px;
+  opacity: 0.80;
+}
+
+
+
 @media (min-width: 767px) {
   .d-flex.align-items-center {
     position: absolute;
@@ -164,12 +207,14 @@ a.hover-none {
     position: absolute;
     bottom: 100px;
   }
+
 }
 
 @media (max-width: 1220px) {
   .exp {
-    margin-right: 0px;
+    margin-right: 90px;
   }
+  
   .otp-send input {
     width: 60px !important;
     height: 60px !important;
@@ -179,6 +224,52 @@ a.hover-none {
     color: #fff;
     font-size: 30px;
   }
+  .otp-send span {
+    display: none;
+}
+ 
+  
+}
+@media (max-width: 1024px) {
+  .otp-send input {
+    width: 50px !important;
+    height: 50px !important;
+  }
+  p.exp {
+    margin-right: 0px;
+    text-align: left !important;
+  }
+}
+
+@media (max-width:768px) {
+  .sub-heading {
+    font-size: 25px;
+}
+.main-heading {
+  font-size: 25px;
+}
+  .full-w {
+    width: 100% !important;
+    text-align: center;
+}
+img.bonus-img {
+  width: 80%;
+  height: auto;
+}
+.form-heading {
+  font-size: 16px;
+}
+input.form-control::placeholder {
+  font-size: 16px;
+}
+.sub-heading-bold {
+  font-size: 32.58px;
+  line-height: 22.19px;
+}
+.sub-heading-small {
+  font-size: 20.93px;
+  line-height: 34.19px;
+}
 }
 
 @media (max-width: 500px) {
@@ -201,9 +292,7 @@ a.hover-none {
     gap: 10px;
     justify-content: space-between;
   }
-  .main-heading {
-    font-size: 30px;
-  }
+ 
   button.btn-style {
     padding: 10px 50px;
     width: 100% !important;
@@ -216,3 +305,21 @@ a.hover-none {
     height: 45px !important;
   }
 }
+
+@media (min-width: 1940px) {
+  .box-w {
+    width: 360px;
+  }
+  .ali-self{
+    align-self: flex-start !important;
+  }
+img.bonus-img {
+    margin-top: 40%;
+}
+.last {
+  position: relative;
+  margin-top: 40%;
+  bottom: 100px;
+}
+}
+  

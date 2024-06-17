@@ -10,7 +10,7 @@ const Otp = () => {
     <section id="banner">
       <div className="container">
         <div className="row banner align-items-center">
-          <div className="col-md-6 col-12">
+          <div className="col-md-6 col-12 ali-self">
             <div className="d-flex align-items-center mt-sm-0 mt-4 g-10">
               <img className="logo" src="/img/carlo-logo.svg" alt="Logo" />
               <h2 className="sub-heading font-yellow">Caro11</h2>
@@ -67,7 +67,7 @@ const Otp = () => {
               <div className="text-white text-center box-w">
                 <p className="mt-md-4 mt-4">
                   By Registering, I Agree to{" "}
-                  <span className="font-yellow">Caro11’s </span>T&Cs
+                  <span className="font-yellow"><b>Caro11’s</b></span>T&Cs
                 </p>
               </div>
             </div>
